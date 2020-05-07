@@ -5,8 +5,7 @@
   "author": "chujunfang <chujunfang@qfpay.com>",
   "private": true,
   "scripts": {
-    "start": "node server/bin/www",
-    "product-start": "node bin/www"
+    "start": "node server/bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
