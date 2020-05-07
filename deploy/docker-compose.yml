@@ -1,10 +1,14 @@
 version: '3.7'
 services:
   database:
-    image: mongo
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - ~/data/mongodb/db:/data/db
+    ports:
+      - 27017:27017
     networks:
       - webapp-network
   web:

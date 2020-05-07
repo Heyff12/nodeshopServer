@@ -87,10 +87,6 @@ jobs:
         with:
           name: deploy
           path: ./deploy
-      - uses: actions/download-artifact@v2
-        with:
-          name: server
-          path: ./server
       - name: copy shell to remote server
         uses: alinz/ssh-scp-action@master
         with:
@@ -100,7 +96,6 @@ jobs:
           user: ${{ secrets.REMOTE_USER }}
           scp: |
             deploy/* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:~/deploys/nodeshopServer
-            server/demodata/* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:~/deploys/nodeshopServer/demodata
       - name: deploy on remote server
         uses: appleboy/ssh-action@master
         with:

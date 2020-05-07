@@ -9,6 +9,7 @@ var Goods = require('../model/goods');
 //     }
 // };
 // mongoose.connect('mongodb://127.0.0.1:27017/dumall', {
+// mongoose.connect('mongodb://root:rootyaya12@database/dumall', {
 mongoose.connect('mongodb://database/dumall', {
   useMongoClient: true,
   /* other options */
