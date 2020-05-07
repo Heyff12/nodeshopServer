@@ -32,7 +32,7 @@ jobs:
       #   env:
       #     CI: true
 
-      - name: store dist file
+      - name: store server file
         uses: actions/upload-artifact@v2
         with:
           name: server
@@ -50,7 +50,7 @@ jobs:
           name: dockerfile
           path: ./Dockerfile
 
-      - name: store dockerfile file
+      - name: store deploy file
         uses: actions/upload-artifact@v2
         with:
           name: deploy
