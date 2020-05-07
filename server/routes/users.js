@@ -3,7 +3,28 @@ var router = express.Router();
 require('./../util/util')
 
 var User = require('./../model/user');
+const InitUsers = require('../initData/users')
 
+//-----------------------------------------------------用户----start------------------------------------------------------------
+//设置默认值----------------------------------------------------------------
+User.count({}, function(err, count) {
+  if (err) {
+    return err;
+  }
+  if (count <= 0) {
+    console.log('执行默认值user');
+    for (let i = 0; i < InitUsers.length; i++) {
+      let item = InitUsers[i];
+      new User(item).save(function(err, doc) {
+        if (err) {
+          return err;
+        } else {
+          return doc;
+        }
+      });
+    }
+  }
+});
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
