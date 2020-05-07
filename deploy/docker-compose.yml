@@ -10,7 +10,7 @@ services:
     networks:
       - webapp-network
   web:
-    image: nodeshop
+    image: heyff12/nodeshop-server
     depends_on:
       - database
     ports:
