@@ -26,11 +26,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
-        env:
-          CI: true
+      - run: npm install
+      # - run: npm run build --if-present
+      # - run: npm test
+      #   env:
+      #     CI: true
 
       - name: store dist file
         uses: actions/upload-artifact@v2
