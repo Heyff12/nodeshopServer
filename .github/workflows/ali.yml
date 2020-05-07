@@ -106,6 +106,7 @@ jobs:
           command_timeout: 30m
           envs: DOCKER_REG
           script: |
+            docker pull $DOCKER_REG
             docker image prune -f
             cd ~/deploys/nodeshopServer
             docker-compose up -d
