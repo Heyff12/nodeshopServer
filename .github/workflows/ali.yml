@@ -93,7 +93,7 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           user: ${{ secrets.REMOTE_USER }}
           scp: |
-            deploy/* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:~/deploys/nodeshopServer
+            docker-compose.yml ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:~/deploys/nodeshopServer
       - name: deploy on remote server
         uses: appleboy/ssh-action@master
         with:
