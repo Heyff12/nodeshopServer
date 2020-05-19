@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# use admin;
-# db.createUser({ user: 'root', pwd: 'rootyaya12', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
+
 mongo <<EOF
+use admin;
+db.createUser({ user: 'root', pwd: 'rootyaya12', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
 use dumall;
 db.createCollection("goods");
 db.createCollection("users");

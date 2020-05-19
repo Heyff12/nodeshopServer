@@ -1,31 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var Goods = require('../model/goods');
-// var options = {  
-//     server: {
-//         auto_reconnect: true,
-//         poolSize: 10
-//     }
-// };
-// mongoose.connect('mongodb://127.0.0.1:27017/dumall', {
-// mongoose.connect('mongodb://root:rootyaya12@database/dumall', {
-mongoose.connect('mongodb://database/dumall', {
-  useMongoClient: true,
-  /* other options */
-  // auto_reconnect: true,
-  // poolSize: 10
-});
 
-mongoose.connection.on('connected', function() {
-  console.log('mongodb connected success');
-});
-mongoose.connection.on('error', function() {
-  console.log('mongodb connected fail');
-});
-mongoose.connection.on('disconnected', function() {
-  console.log('mongodb connected disconnected');
-});
 
 // const InitGoods = require('../initData/goods')
 

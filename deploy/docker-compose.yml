@@ -1,24 +1,15 @@
 version: '3'
 services:
-  database:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    volumes:
-      - ~/data/mongodb/db:/data/db
-    # ports:
-    #   - 27017:27017
-    networks:
-      - webapp-network
   web:
     image: heyff12/nodeshop-server
-    depends_on:
-      - database
     ports:
       - 3003:3003
+    container_name: heyff12-nodeshop-server
     networks:
-      - webapp-network
+      - default
+      - mongo_net
+    external_links:
+      - mongo_db
 networks:
-  webapp-network:
-    driver: bridge
+  mongo_net:
+    external: true

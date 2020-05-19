@@ -4,6 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -11,6 +12,25 @@ var goods = require('./routes/goods');
 var ejs = require('ejs');
 
 var app = express();
+
+// mongoose.connect('mongodb://127.0.0.1:27017/dumall', {
+// mongoose.connect('mongodb://root:rootyaya12@database/dumall', {
+mongoose.connect('mongodb://mongo_db/dumall', {
+  useMongoClient: true,
+  /* other options */
+  auto_reconnect: true,
+  // poolSize: 10
+});
+
+mongoose.connection.on('connected', function() {
+  console.log('mongodb connected success');
+});
+mongoose.connection.on('error', function() {
+  console.log('mongodb connected fail');
+});
+mongoose.connection.on('disconnected', function() {
+  console.log('mongodb connected disconnected');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
