@@ -7,8 +7,8 @@ services:
     restart: always
     volumes:
       - ~/data/mongodb/db:/data/db
-    ports:
-      - 27017:27017
+    # ports:
+    #   - 27017:27017
     networks:
       - webapp-network
   web:

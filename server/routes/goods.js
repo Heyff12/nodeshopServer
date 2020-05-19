@@ -27,28 +27,28 @@ mongoose.connection.on('disconnected', function() {
   console.log('mongodb connected disconnected');
 });
 
-const InitGoods = require('../initData/goods')
+// const InitGoods = require('../initData/goods')
 
 //-----------------------------------------------------用户----start------------------------------------------------------------
 //设置默认值----------------------------------------------------------------
-Goods.count({}, function(err, count) {
-  if (err) {
-    return err;
-  }
-  if (count <= 0) {
-    console.log('执行默认值user');
-    for (let i = 0; i < InitGoods.length; i++) {
-      let item = InitGoods[i];
-      new Goods(item).save(function(err, doc) {
-        if (err) {
-          return err;
-        } else {
-          return doc;
-        }
-      });
-    }
-  }
-});
+// Goods.count({}, function(err, count) {
+//   if (err) {
+//     return err;
+//   }
+//   if (count <= 0) {
+//     console.log('执行默认值user');
+//     for (let i = 0; i < InitGoods.length; i++) {
+//       let item = InitGoods[i];
+//       new Goods(item).save(function(err, doc) {
+//         if (err) {
+//           return err;
+//         } else {
+//           return doc;
+//         }
+//       });
+//     }
+//   }
+// });
 
 //查询商品列表数据
 router.get('/list', function(req, res, next) {
