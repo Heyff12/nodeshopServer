@@ -33,25 +33,25 @@ jobs:
       #     CI: true
 
       - name: store server file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: server
           path: server
 
       - name: store package file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: ./package*.json
 
       - name: store dockerfile file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dockerfile
           path: ./Dockerfile
 
       - name: store deploy file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: deploy
           path: deploy
@@ -60,14 +60,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: server
           path: ./server
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: package
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: dockerfile
       - name: Build the Docker image
@@ -83,7 +83,7 @@ jobs:
       # DOCKER_REG: $IMAGE_NAME:$VERSION
       DOCKER_REG: heyff12/nodeshop-server
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: deploy
           path: ./deploy
